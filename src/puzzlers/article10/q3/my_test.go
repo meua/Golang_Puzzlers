@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"testing"
+	"time"
 )
 
 func TestMyDemo(t *testing.T) {
@@ -32,6 +33,9 @@ func TestSwitchCase(t *testing.T) {
 		make(chan int, 1),
 		make(chan int, 1),
 	}
+	for _, v := range intChannels {
+		defer close(v)
+	}
 	//rand.NewSource(10)
 	index := rand.Intn(3)
 	fmt.Printf("The index: %d\n", index)
@@ -44,7 +48,22 @@ func TestSwitchCase(t *testing.T) {
 	default:
 		fmt.Println("No candidate case is selected.")
 	}
+}
 
+func TestCaseReturn(t *testing.T) {
+	ch := make(chan int, 1)
+	//ch <- 234
+	time.AfterFunc(time.Second, func() {
+		close(ch)
+	})
+	select {
+	case v, ok := <-ch:
+		if !ok {
+			fmt.Printf("The candidate element is %d\n", v)
+			break
+		}
+		fmt.Println("The candidate case is selected.")
+	}
 }
 
 type MyStruct struct {
