@@ -23,13 +23,14 @@ func (ac AnimalCategory) String() string {
 // 示例2。
 type Animal struct {
 	scientificName string // 学名。
-	AnimalCategory        // 动物基本分类。
+	age            int
+	AnimalCategory // 动物基本分类。
 }
 
 // 该方法会"屏蔽"掉嵌入字段中的同名方法。
 func (a Animal) String() string {
-	return fmt.Sprintf("%s (category: %s)",
-		a.scientificName, a.AnimalCategory)
+	return fmt.Sprintf("%s (age: %d)(category: %s)",
+		a.scientificName, a.age, a.AnimalCategory)
 }
 
 // 示例3。
@@ -52,11 +53,12 @@ func main() {
 	// 示例2。
 	animal := Animal{
 		scientificName: "American Shorthair",
+		age:            12,
 		AnimalCategory: category,
 	}
 	fmt.Printf("The animal: %s\n", animal)
 
-	// 示例3。
+	//示例3。
 	cat := Cat{
 		name:   "little pig",
 		Animal: animal,
