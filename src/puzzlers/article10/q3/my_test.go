@@ -63,7 +63,11 @@ func TestCaseReturn(t *testing.T) {
 			break
 		}
 		fmt.Println("The candidate case is selected.")
+		//default:
+		//	fmt.Println("Channel is closed.")
+		//	break
 	}
+
 }
 
 type MyStruct struct {
