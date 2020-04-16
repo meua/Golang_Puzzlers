@@ -1,17 +1,12 @@
 package main
 
-import (
-	"fmt"
-	//"time"
-)
-
 func main() {
 	num := 10
 	sign := make(chan struct{}, num)
 
 	for i := 0; i < num; i++ {
 		go func() {
-			fmt.Println(i)
+			println(i)
 			sign <- struct{}{}
 		}()
 	}
