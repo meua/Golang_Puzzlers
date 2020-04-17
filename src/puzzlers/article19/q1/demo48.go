@@ -19,6 +19,7 @@ func caller1() {
 func caller2() {
 	fmt.Println("Enter function caller2.")
 	s1 := []int{0, 1, 2, 3, 4}
+	// 越界了
 	e5 := s1[5]
 	_ = e5
 	fmt.Println("Exit function caller2.")
