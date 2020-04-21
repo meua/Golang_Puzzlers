@@ -91,3 +91,10 @@ func comparePrimes(primes []int) (err error) {
 	}
 	return
 }
+
+func BenchmarkNavy(b *testing.B) {
+	b.RunParallel(func(pb *testing.PB) {
+		println(pb.Next())
+	})
+	b.SetParallelism(8)
+}

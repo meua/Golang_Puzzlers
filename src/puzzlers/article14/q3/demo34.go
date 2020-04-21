@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Animal interface {
 	// ScientificName 用于获取动物的学名。
@@ -61,4 +59,11 @@ func main() {
 	fmt.Printf("Dog implements interface Named: %v\n", ok)
 	_, ok = interface{}(dog).(Pet)
 	fmt.Printf("Dog implements interface Pet: %v\n", ok)
+	//dog := Dog{}
+	//fmt.Printf("Type is %T\n", dog)
+	//var dog1 *Dog
+	//if dog1 == nil {
+	//	fmt.Printf("is nil")
+	//}
+
 }
